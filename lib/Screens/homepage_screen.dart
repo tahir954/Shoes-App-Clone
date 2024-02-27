@@ -58,8 +58,8 @@ class _HomePageState extends State<HomePage> {
               transitionBuilder: (widget, animation) =>
                   ScaleTransition(scale: animation, child: widget),
               child: themeProvider.themeData.brightness == Brightness.dark
-                  ? const Icon(Icons.lightbulb_outline, color: Colors.white)
-                  : const Icon(Icons.brightness_7, color: Colors.black),
+                  ? const Icon(Icons.lightbulb_outline, color: Colors.white,)
+                  : const Icon(Icons.brightness_7, color: Colors.black,),
             ),
           ).pOnly(
             right: 20,
