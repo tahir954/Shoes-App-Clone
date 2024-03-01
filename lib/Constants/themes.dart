@@ -5,9 +5,10 @@ class MyTheme {
   /// Light Theme Attributes
   static ThemeData lightTheme() {
     return ThemeData(
-      navigationDrawerTheme: NavigationDrawerThemeData(
-          backgroundColor:darkScaffold
+      drawerTheme: DrawerThemeData(
+        backgroundColor: drawerLightBG
       ),
+
       cardColor: Colors.black12.withOpacity(0.09),
       primaryColor: darkScaffold,
       appBarTheme: AppBarTheme(
@@ -30,7 +31,8 @@ class MyTheme {
           fontSize: 28,
         ),
         bodyMedium: TextStyle(
-          fontWeight: FontWeight.w300,
+          fontWeight: FontWeight.w400
+          ,
           fontFamily: "SFUIDisplay",
           color: blueColorFlight,
           fontSize: 30,
@@ -52,6 +54,9 @@ class MyTheme {
       useMaterial3: true,
       primaryColor: Colors.white,
       fontFamily: "SFUIDisplay",cardColor: cardColorForDark,
+      drawerTheme: DrawerThemeData(
+          backgroundColor: drawerDarkBG
+      ),
       navigationDrawerTheme: const NavigationDrawerThemeData(
         backgroundColor: Colors.white
       ),

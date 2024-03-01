@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
-import 'carousel_images.dart';
+import '../carousel_images.dart';
 
 class CardSlider extends StatelessWidget {
   const CardSlider({
@@ -25,11 +25,13 @@ class CardSlider extends StatelessWidget {
         ),
       ],
       options: CarouselOptions(
-        animateToClosest: true,
         autoPlay: true,
-        disableCenter: true,
         enlargeCenterPage: true,
-        aspectRatio: 1.7,
+        enableInfiniteScroll: true,
+        enlargeFactor: 0.4,
+        aspectRatio: 2.2,
+        animateToClosest: true,
+        padEnds: true,
       ),
     );
   }

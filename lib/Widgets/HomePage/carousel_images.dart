@@ -8,11 +8,11 @@ class CarouselImages extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(30),
+     borderRadius: BorderRadius.circular(30),
       child: Image.asset(
         carouselImage,
         fit: BoxFit.fill,
       ),
-    ).pOnly(left: 0);
+    );
   }
 }

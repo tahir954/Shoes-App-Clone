@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shoes1/Constants/responsive.dart';
-import 'package:shoes1/Widgets/HomePage/card_image.dart';
-import 'package:shoes1/Widgets/HomePage/products_card.dart';
+import 'package:shoes1/Widgets/HomePage/HomePage%20Cards/card_image.dart';
+import 'package:shoes1/Widgets/HomePage/HomePage%20Cards/products_card.dart';
 
 import 'card_slider.dart';
 
