@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
 
       /// Bottom NavBar
-     // floatingActionButton: const BottomNavigation().pOnly(left: 15, right: 30),
+      floatingActionButton: const BottomNavigation().pOnly(left: 15, right: 30),
 
       /// Navigation Drawer
       drawer: const DrawerMain(),
@@ -74,6 +74,7 @@ class _HomePageState extends State<HomePage> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+
           /// Upper Title and Filter Button
           const TopTextAndFilterBox().pOnly(left: 20).pOnly(bottom: 15),
 

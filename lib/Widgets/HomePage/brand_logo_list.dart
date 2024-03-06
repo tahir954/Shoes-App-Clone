@@ -6,15 +6,17 @@ import 'package:velocity_x/velocity_x.dart';
 class BrandLogoList extends StatelessWidget {
   final String? brandLogo;
   final String? brandName;
-  const BrandLogoList({super.key, this.brandLogo, this.brandName});
+   BrandLogoList({super.key, this.brandLogo, this.brandName});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 500),
       width: 130,
       height: 100,
       decoration: BoxDecoration(
-          color: blueButtonColor, borderRadius: BorderRadius.circular(30)),
+          color: blueButtonColor, borderRadius: BorderRadius.circular(30),
+      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         mainAxisSize: MainAxisSize.min,

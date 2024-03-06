@@ -18,10 +18,10 @@ class DrawerNavigationTexts extends StatelessWidget {
       onTap: onTapFun,
       child: Text(
         pageTitle,
-        style: Theme.of(context)
-            .textTheme
-            .bodyMedium!
-            .copyWith(fontSize: 18, fontWeight: FontWeight.w400),
+        style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+              fontSize: 18,
+              fontWeight: FontWeight.w400,
+            ),
       ).p(8),
     ).pOnly(top: 4, bottom: 4);
   }

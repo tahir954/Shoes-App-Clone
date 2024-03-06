@@ -1,12 +1,12 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shoes1/Widgets/HomePage/Bottom%20Sheet/bottom_sheet.dart';
 import 'package:shoes1/Widgets/HomePage/home_lower_text.dart';
 import 'package:shoes1/Widgets/HomePage/home_upper_text.dart';
-import 'package:shoes1/Widgets/start__login__btn.dart';
-import 'package:velocity_x/velocity_x.dart';
 
 import '../../Constants/responsive.dart';
-import 'appbar_title.dart';
+
 
 class TopTextAndFilterBox extends StatefulWidget {
   const TopTextAndFilterBox({
@@ -17,7 +17,25 @@ class TopTextAndFilterBox extends StatefulWidget {
   State<TopTextAndFilterBox> createState() => _TopTextAndFilterBoxState();
 }
 
-class _TopTextAndFilterBoxState extends State<TopTextAndFilterBox> {
+class _TopTextAndFilterBoxState extends State<TopTextAndFilterBox>   with SingleTickerProviderStateMixin{
+
+  late AnimationController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1400),
+    );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final responsive = Responsive.of(context);
@@ -26,51 +44,36 @@ class _TopTextAndFilterBoxState extends State<TopTextAndFilterBox> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-           const Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              HomeLowerText(
-                lowerText: "Enjoy New Nike",
-              ),
-              HomeUpperText(
-                upperTxt: "Products",
-              ),
-            ],
+          SlideInLeft(
+controller: (p0) => _controller,
+            from: 30,
+            duration: const Duration(milliseconds: 1400),
+            child: const Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                HomeLowerText(
+                  lowerText: "Enjoy New Nike",
+                ),
+                HomeUpperText(
+                  upperTxt: "Products",
+                ),
+              ],
+            ),
           ),
+
+          /// Bottom Sheet
           GestureDetector(
             onTap: () {
-              showBottomSheet(
-                context: context,
-                builder: (context) => Container(
-                  height: 500,
-                  decoration:  BoxDecoration(
-                    color: Theme.of(context).drawerTheme.backgroundColor,
-                    borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(30,),
-                      topRight: Radius.circular(
-                        30,
-                      ),
-                    ),
-                    border: Border.all(
-
-                      width: 0)
-                  ),
-                  child: Column(
-                    children: [
-                       const AppbarTitle(
-                        appBarTitle: "FILTERS",
-                        fontSize: 20,
-                      ).pOnly(top: 15,bottom: 15),
-                      const Text('Price Range'),
-                      StartLoginBtn(
-                        btnName: 'Apply',
-                        onPressFun: (){Navigator.pop(context);},
-                        responsive: responsive,
-                      )
-                    ],
-                  ),
+              showModalBottomSheet(
+                backgroundColor:
+                    Theme.of(context).bottomSheetTheme.backgroundColor,
+                constraints: BoxConstraints.expand(
+                  height: responsive.heightPercent(90),
                 ),
+                enableDrag: true,
+                context: context,
+                builder: (context) => const HomePageBottomSheet(),
               );
             },
             child: Container(

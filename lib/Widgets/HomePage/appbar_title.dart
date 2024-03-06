@@ -13,7 +13,7 @@ class AppbarTitle extends StatelessWidget {
     return Text(
       appBarTitle,
       style:  TextStyle(
-        fontWeight: FontWeight.w500,
+          fontFamily: 'SFUIDisplay',
         fontSize: fontSize
       ),
     );

@@ -5,12 +5,22 @@ class MyTheme {
   /// Light Theme Attributes
   static ThemeData lightTheme() {
     return ThemeData(
-      drawerTheme: DrawerThemeData(
-        backgroundColor: drawerLightBG
-      ),
-
+      scaffoldBackgroundColor: Colors.white,
+      useMaterial3: true,
+      fontFamily: "SFUIDisplay",
       cardColor: Colors.black12.withOpacity(0.09),
       primaryColor: darkScaffold,
+
+      /// BottomSheet Theme Management
+      bottomSheetTheme: BottomSheetThemeData(
+          backgroundColor: drawerLightBG,
+
+      ),
+
+      /// Drawer Theme Management
+      drawerTheme: DrawerThemeData(backgroundColor: drawerLightBG),
+
+     /// AppBar Theme Management
       appBarTheme: AppBarTheme(
         color: Colors.white,
         centerTitle: true,
@@ -23,6 +33,8 @@ class MyTheme {
           fontFamily: "SFUIDisplay",
         ),
       ),
+
+      /// Text Theme Management
       textTheme: TextTheme(
         bodyLarge: TextStyle(
           fontWeight: FontWeight.w600,
@@ -31,8 +43,6 @@ class MyTheme {
           fontSize: 28,
         ),
         bodyMedium: TextStyle(
-          fontWeight: FontWeight.w400
-          ,
           fontFamily: "SFUIDisplay",
           color: blueColorFlight,
           fontSize: 30,
@@ -43,23 +53,29 @@ class MyTheme {
           fontFamily: "SFUIDisplay",
         ),
       ),
-      scaffoldBackgroundColor: Colors.white,
-      useMaterial3: true,
-      fontFamily: "SFUIDisplay",
     );
   }
-/// Dark Theme Attributes
+  /// Dark Theme Attributes
   static ThemeData darkTheme() {
     return ThemeData(
+      scaffoldBackgroundColor: darkScaffold,
       useMaterial3: true,
       primaryColor: Colors.white,
-      fontFamily: "SFUIDisplay",cardColor: cardColorForDark,
-      drawerTheme: DrawerThemeData(
+      fontFamily: "SFUIDisplay",
+      cardColor: cardColorForDark,
+
+      /// BottomSheet Theme Management
+      bottomSheetTheme: BottomSheetThemeData(
           backgroundColor: drawerDarkBG
       ),
-      navigationDrawerTheme: const NavigationDrawerThemeData(
-        backgroundColor: Colors.white
-      ),
+
+      /// Drawer Theme Management
+      drawerTheme: DrawerThemeData(backgroundColor: drawerDarkBG),
+
+      navigationDrawerTheme:
+      const NavigationDrawerThemeData(backgroundColor: Colors.white),
+
+      /// AppBar Theme Management
       appBarTheme: AppBarTheme(
         color: darkScaffold,
         centerTitle: true,
@@ -72,6 +88,8 @@ class MyTheme {
           color: Colors.white,
         ),
       ),
+
+      /// Text Theme Management
       textTheme: const TextTheme(
         bodyLarge: TextStyle(
           fontWeight: FontWeight.w600,
@@ -91,7 +109,6 @@ class MyTheme {
           fontFamily: "SFUIDisplay",
         ),
       ),
-      scaffoldBackgroundColor: darkScaffold,
 
     );
   }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:shoes1/Constants/routes.dart';
+import 'package:shoes1/Screens/login_screen.dart';
 import 'package:shoes1/Widgets/HomePage/Drawer/drawer_all_pages.dart';
 import 'package:shoes1/Widgets/HomePage/appbar_title.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -71,9 +73,11 @@ class DrawerMain extends StatelessWidget {
               const DrawerAllPages().pOnly(top: 20, left: 20),
             ],
           ),
+
+          /// Sign Button
           InkWell(
             borderRadius: BorderRadius.circular(40),
-            onTap: () {},
+            onTap: () { MyRoutes.instance.pushAndRemoveUntil(widget: LoginPage(), context: context);},
             child: Row(
               children: [
                 SvgPicture.asset('assets/images/Svgs/sign_out_arrow.svg').pOnly(right: 17),

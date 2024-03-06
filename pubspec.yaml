@@ -21,6 +21,10 @@ dependencies:
   line_icons: ^2.0.3
   carousel_slider: ^4.2.1
   wolt_modal_sheet: ^0.4.1
+  syncfusion_flutter_sliders: ^24.2.8
+  modal_bottom_sheet: ^2.1.2
+  animate_do: any
+
 
 
 dev_dependencies:
@@ -35,3 +39,14 @@ flutter:
     - assets/images/Splash/
     - assets/images/Svgs/
     - assets/fonts/
+  fonts:
+    - family: SFUIDisplay
+      fonts:
+        - asset: assets/fonts/SFUIDisplay-Black.otf
+        - asset: assets/fonts/SFUIDisplay-Bold.otf
+        - asset: assets/fonts/SFUIDisplay-Heavy.otf
+        - asset: assets/fonts/SFUIDisplay-Light.otf
+        - asset: assets/fonts/SFUIDisplay-Medium.otf
+        - asset: assets/fonts/SFUIDisplay-Semibold.otf
+        - asset: assets/fonts/SFUIDisplay-Thin.otf
+        - asset: assets/fonts/SFUIDisplay-Ultralight.otf

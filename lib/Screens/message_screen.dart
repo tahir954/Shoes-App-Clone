@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../Widgets/HomePage/Bottom Navigation/bottom_nav_bar.dart';
-class DiscoverAllScreen extends StatelessWidget {
-  const DiscoverAllScreen({super.key});
+class MessageScreen extends StatelessWidget {
+  const MessageScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,8 +11,6 @@ class DiscoverAllScreen extends StatelessWidget {
       /// Bottom NavBar
       floatingActionButton: const BottomNavigation().pOnly(left: 15, right: 30),
       appBar: AppBar(),
-      body: Container(color: Colors.blueGrey,
-      height: 600,),
     );
   }
 }

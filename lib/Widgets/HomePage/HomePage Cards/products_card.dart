@@ -7,14 +7,14 @@ import 'package:shoes1/Constants/routes.dart';
 import 'package:shoes1/Screens/detail_screen.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-class CategoryCards extends StatelessWidget {
+class CategoryCards extends StatefulWidget {
   final String remainQty;
 
   final String brandName;
   final Widget imageOrSlider;
   final String price;
 
-  const CategoryCards({
+   const CategoryCards({
     super.key,
     required this.responsive,
     required this.remainQty,
@@ -26,6 +26,14 @@ class CategoryCards extends StatelessWidget {
   final Responsive responsive;
 
   @override
+  State<CategoryCards> createState() => _CategoryCardsState();
+}
+
+class _CategoryCardsState extends State<CategoryCards> {
+/// Toggle for favorite
+  bool toggle=true;
+
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
       /// To navigate to Detail Screen
@@ -34,13 +42,13 @@ class CategoryCards extends StatelessWidget {
         context: context,
       ),
       child: SizedBox(
-        height: responsive.heightPercent(30),
+        height: widget.responsive.heightPercent(30),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              height: responsive.heightPercent(21),
-              width: responsive.widthPercent(42),
+              height: widget.responsive.heightPercent(21),
+              width: widget.responsive.widthPercent(42),
               decoration: BoxDecoration(
                 color: Theme.of(context).cardColor,
                 borderRadius: BorderRadius.circular(
@@ -54,8 +62,8 @@ class CategoryCards extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  /// Row for Quantity Remain and favorite button
 
+                  /// Row for Quantity Remain and favorite button
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -63,16 +71,16 @@ class CategoryCards extends StatelessWidget {
                         height: 30,
                         width: 50,
                         decoration: BoxDecoration(
-                          color: remainQty == ""
+                          color: widget.remainQty == ""
                               ? Colors.transparent
-                              : (remainQty.isNotEmpty)
+                              : (widget.remainQty.isNotEmpty)
                                   ? blueButtonColor
                                   : Colors.transparent,
                           // Default color for other cases
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Text(
-                          remainQty,
+                          widget.remainQty,
                           style:
                               Theme.of(context).textTheme.bodySmall!.copyWith(
                                     color: Colors.white,
@@ -83,9 +91,13 @@ class CategoryCards extends StatelessWidget {
 
                       /// Add item as Favorite
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          setState(() {
+                            toggle = !toggle; // Toggle the value on tap
+                          });
+                        },
                         icon: Icon(
-                          FontAwesomeIcons.heart,
+                          toggle ?FontAwesomeIcons.heart:FontAwesomeIcons.solidHeart,
                           size: 20,
                           color: Theme.of(context).primaryColor,
                         ),
@@ -94,14 +106,14 @@ class CategoryCards extends StatelessWidget {
                   ).pOnly(top: 5),
 
                   /// Widget here for image in card or slider
-                  imageOrSlider,
+                  widget.imageOrSlider,
 
                   /// Add item to cart
                   GestureDetector(
                     child: SvgPicture.asset(
                       'assets/images/Svgs/cart.svg',
                       color: Theme.of(context).primaryColor,
-                      height: responsive.heightPercent(
+                      height: widget.responsive.heightPercent(
                         2,
                       ),
                     ),
@@ -113,14 +125,14 @@ class CategoryCards extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  brandName,
+                  widget.brandName,
                   style: Theme.of(context)
                       .textTheme
                       .bodyMedium!
                       .copyWith(fontSize: 20, fontWeight: FontWeight.w400),
                 ),
                 Text(
-                  price,
+                  widget.price,
                   style: Theme.of(context)
                       .textTheme
                       .bodyLarge!

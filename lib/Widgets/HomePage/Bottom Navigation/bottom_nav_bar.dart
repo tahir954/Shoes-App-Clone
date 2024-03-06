@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shoes1/Constants/colors.dart';
+import 'package:shoes1/Constants/routes.dart';
+import 'package:shoes1/Screens/cart_screen.dart';
+import 'package:shoes1/Screens/discover_all_screen.dart';
+import 'package:shoes1/Screens/homepage_screen.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../../../Constants/responsive.dart';
@@ -20,7 +24,13 @@ class _BottomNavigationState extends State<BottomNavigation> {
     "assets/images/Svgs/message.svg",
     "assets/images/Svgs/profile.svg",
   ];
+List<Widget> navigationScreens=[
+  const HomePage(),
+  const DiscoverAllScreen(),
+  const CartScreen()
 
+
+  ];
   int selectedIndex = 0; // Initialize selected index
 
   @override
@@ -40,6 +50,8 @@ class _BottomNavigationState extends State<BottomNavigation> {
 
           return InkWell(
             onTap: () {
+              MyRoutes.instance.push(widget: navigationScreens[index], context: context);
+
               setState(() {
                 selectedIndex = index;
               });
