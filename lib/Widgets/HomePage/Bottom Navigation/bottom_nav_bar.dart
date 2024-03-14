@@ -5,6 +5,8 @@ import 'package:shoes1/Constants/routes.dart';
 import 'package:shoes1/Screens/cart_screen.dart';
 import 'package:shoes1/Screens/discover_all_screen.dart';
 import 'package:shoes1/Screens/homepage_screen.dart';
+import 'package:shoes1/Screens/message_screen.dart';
+import 'package:shoes1/Screens/profile_screen.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../../../Constants/responsive.dart';
@@ -26,10 +28,10 @@ class _BottomNavigationState extends State<BottomNavigation> {
   ];
 List<Widget> navigationScreens=[
   const HomePage(),
-  const DiscoverAllScreen(),
-  const CartScreen()
-
-
+  DiscoverAllScreen(),
+  const CartScreen(),
+  const MessageScreen(),
+  const ProfileScreen(),
   ];
   int selectedIndex = 0; // Initialize selected index
 
@@ -37,41 +39,40 @@ List<Widget> navigationScreens=[
   Widget build(BuildContext context) {
     final responsive = Responsive.of(context);
     return Container(
-      height: responsive.heightPercent(8),
-      decoration: BoxDecoration(
-        color: blueColorFlight,
-        borderRadius: BorderRadius.circular(50),
-      ),
-      child: ListView.builder(
-        shrinkWrap: true,
-        scrollDirection: Axis.horizontal,
-        itemCount: svgsList.length,
-        itemBuilder: (context, index) {
-
-          return InkWell(
-            onTap: () {
-              MyRoutes.instance.push(widget: navigationScreens[index], context: context);
-
-              setState(() {
-                selectedIndex = index;
-              });
-            },
-            child: AnimatedContainer(
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: selectedIndex == index ?Colors.white: Colors.transparent,
+        height: responsive.heightPercent(8),
+        decoration: BoxDecoration(
+          color: blueColorFlight,
+          borderRadius: BorderRadius.circular(50),
+        ),
+        child: ListView.builder(
+          shrinkWrap: true,
+          scrollDirection: Axis.horizontal,
+          itemCount: svgsList.length,
+          itemBuilder: (context, index) {
+            return InkWell(
+              onTap: () {
+                setState(() {
+                  MyRoutes.instance.pushAndRemoveUntil(widget: navigationScreens[index], context: context);
+                  selectedIndex = index;
+                });
+              },
+              child: AnimatedContainer(
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: selectedIndex == index ?Colors.white: Colors.transparent,
+                ),
+                width: 40,
+                height: 40,
+                duration: const Duration(milliseconds: 200),
+                child: SvgPicture.asset(
+                  svgsList[index],
+                  color: selectedIndex == index ? blueColorFlight : Colors.white,
+                ).p(6),
               ),
-              width: 40,
-              height: 40,
-              duration: const Duration(milliseconds: 200),
-              child: SvgPicture.asset(
-                svgsList[index],
-                color: selectedIndex == index ? blueColorFlight : Colors.white,
-              ).p(6),
-            ),
-          ).pOnly(left: 10,right: 17);
-        },
-      ),
-    ).pOnly(left: 30);
+            ).pOnly(left: 10,right: 17);
+          },
+        ),
+      ).pOnly(left: 30);
+
   }
 }

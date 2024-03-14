@@ -9,9 +9,12 @@ class HomeLowerText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      lowerText,
-      style: Theme.of(context).textTheme.bodyMedium,
+    return FittedBox(
+      fit: BoxFit.contain,
+      child: Text(
+        lowerText,
+        style: Theme.of(context).textTheme.bodyMedium,
+      ),
     );
   }
 }

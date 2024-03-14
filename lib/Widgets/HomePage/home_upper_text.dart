@@ -9,9 +9,11 @@ class HomeUpperText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      upperTxt,
-      style: Theme.of(context).textTheme.bodyLarge,
+    return FittedBox(
+      child: Text(
+        upperTxt,
+        style: Theme.of(context).textTheme.bodyLarge,
+      ),
     );
   }
 }

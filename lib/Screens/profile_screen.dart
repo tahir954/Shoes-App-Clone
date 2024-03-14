@@ -9,7 +9,7 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       /// Bottom NavBar
-      floatingActionButton: const BottomNavigation().pOnly(left: 15, right: 30),
+      bottomNavigationBar: const BottomNavigation(),
       appBar: AppBar(),
     );
   }
