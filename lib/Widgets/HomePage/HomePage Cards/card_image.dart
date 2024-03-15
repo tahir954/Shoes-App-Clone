@@ -15,13 +15,10 @@ class CardImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Hero(
-      tag: "id",
-      child: Image.asset(
-        cardImage,
-        width: imageWidth,
-        height: imageHeight,
-      ).centered(),
-    );
+    return Image.asset(
+      cardImage,
+      width: imageWidth,
+      height: imageHeight,
+    ).centered();
   }
 }

@@ -7,10 +7,12 @@ class CartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      /// Bottom NavBar
-      bottomNavigationBar: const BottomNavigation(),
-      appBar: AppBar(),
+    return Column(
+      children: [
+        Container(
+          color: Colors.blue,
+        )
+      ],
     );
   }
 }

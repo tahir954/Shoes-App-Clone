@@ -3,6 +3,7 @@ import 'package:shoes1/Constants/colors.dart';
 import 'package:shoes1/Constants/responsive.dart';
 import 'package:shoes1/Constants/routes.dart';
 import 'package:shoes1/Screens/homepage_screen.dart';
+import 'package:shoes1/Screens/main_page.dart';
 import 'package:shoes1/Widgets/Login%20Screen/upper_text.dart';
 import 'package:shoes1/Widgets/Login%20Screen/goto_sign_up_page.dart';
 import 'package:shoes1/Widgets/Login%20Screen/login_credential_fields.dart';
@@ -47,7 +48,7 @@ class _LoginPageState extends State<LoginPage> {
             const HeightBox(20),
 
             /// Top text ------------------------------
-            UpperText(upperTxt: "Welcome Back!"),
+            const UpperText(upperTxt: "Welcome Back!"),
             const HeightBox(5),
             const LowerText(
               lowerText: "Enter password to get back your",
@@ -92,7 +93,7 @@ class _LoginPageState extends State<LoginPage> {
             StartLoginBtn(
               responsive: responsive,
               onPressFun: () => MyRoutes.instance.push(
-                widget: HomePage(),
+                widget: MainPage(),
                 context: context,
               ),
               btnName: "Log in",
